@@ -1,4 +1,4 @@
-import uuid, os, psycopg2
+import os, psycopg2
 from flask import (
     Flask,
     render_template,
@@ -10,15 +10,15 @@ from flask import (
 )
 from validator import validate
 from user_repository import UserRepository
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.environ.get('SECRET_KEY', 'default_secret_key')
+app.secret_key = os.environ.get('SECRET_KEY')
 
-DATABASE_URL = os.environ.get(
-    'DATABASE_URL',
-    'postgresql://alexeygladkov@127.0.0.1:5433/alexeygladkov'
-)
+DATABASE_URL = os.environ.get('DATABASE_URL')
 
 conn = psycopg2.connect(DATABASE_URL)
 

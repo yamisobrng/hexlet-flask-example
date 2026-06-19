@@ -1,0 +1,6 @@
+[project]
+name = "hexlet-flask-example"
+version = "0.1.0"
+dependencies = [
+    "python-dotenv>=1.2.2",
+]

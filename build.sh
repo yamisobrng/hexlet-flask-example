@@ -1,0 +1,1 @@
+psql -p 5433 -a -d alexeygladkov -f init.sql

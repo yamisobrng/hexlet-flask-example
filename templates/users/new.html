@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+    <h1>New User</h1>
+    <hr>
+    <form action="{{ url_for('users_index') }}", method="post">
+        <div>
+            <label>
+                Nickname:
+                <input type="text" name="name" value="{{ user.name }}">
+            </label>
+            {%  if errors %}
+                <div>{{ errors.name }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <label>
+                Email:
+                <input type="email" name="email" value="{{ user.email }}">
+            </label>
+        </div>
+        <input type="submit" name="Submit">
+    </form>
+    <a href="{{ url_for('users_index') }}">Home</a>
+</body>
+</html>
